@@ -9,10 +9,10 @@ int main(void) {
 	char username[20];
 	char *shellType;
 	shellType = getenv("SHELL");
-	printf("Running on top of %s\n", shellType);
 	result = popen("whoami", "r");
 	fgets(lines, 80, result);
 	sscanf(lines, "%s", username);
+	printf("Running on top of %s as %s\n", shellType, username);
 	while(1){
 	printf("%s>", username);
 	fgets(command, 80, stdin);
